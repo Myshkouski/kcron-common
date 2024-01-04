@@ -47,6 +47,16 @@ class DaysOfWeekBuilder(private val firstWeekDay: WeekDays = WeekDays.Monday) : 
                     } * 10, data[1].toInt() * 10
                 )
             }
+            DayOfWeekGroups.Range -> {
+                val (start, end) = value.split('-', limit = 2).map {
+                    it.toInt()
+                }.apply {
+                    // Check all values are in valid bounds.
+                    // This is required for unverified string input before transforming range into list.
+                    require(all { (1..7).contains(it) })
+                }
+                daysOfWeek = (start .. end).toList()
+            }
             DayOfWeekGroups.Unknown -> throw UnknownCronPart("daysOfWeek")
         }
     }

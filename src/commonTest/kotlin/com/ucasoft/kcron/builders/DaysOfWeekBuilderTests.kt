@@ -18,6 +18,8 @@ class DaysOfWeekBuilderTests {
         builder = DaysOfWeekBuilder()
         builder.build(DayOfWeekGroups.Any, "*")
         builder.daysOfWeek.shouldContainExactly(listOf(1..7).flatten())
+        builder.build(DayOfWeekGroups.Range, "2-5")
+        builder.daysOfWeek.shouldContainExactly(listOf(2..5).flatten())
         builder.build(DayOfWeekGroups.Specific, "MON,TUE,THU,FRI,SUN")
         builder.daysOfWeek.shouldContainExactly(1, 2, 4, 5 ,7)
         builder.build(DayOfWeekGroups.Specific, "1,3,5,7")

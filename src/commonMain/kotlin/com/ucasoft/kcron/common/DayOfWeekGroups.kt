@@ -7,5 +7,6 @@ enum class DayOfWeekGroups(override val index: Int) : CronGroups {
     Specific(2),
     EveryStartingAt(3),
     Last(4),
-    OfMonth(5)
+    OfMonth(5),
+    Range(6)
 }

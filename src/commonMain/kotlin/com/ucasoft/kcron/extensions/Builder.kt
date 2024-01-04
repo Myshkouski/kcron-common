@@ -99,6 +99,10 @@ fun Builder.daysOfWeek(vararg values: Int) : Builder {
     return daysOfWeek(DayOfWeekGroups.Specific, values.joinToString(",") )
 }
 
+fun Builder.daysOfWeek(range: ClosedRange<Int>) : Builder {
+    return daysOfWeek(DayOfWeekGroups.Range, arrayOf(range.start, range.endInclusive).joinToString(",") )
+}
+
 fun Builder.daysOfWeek(at: At) : Builder {
     return daysOfWeek(DayOfWeekGroups.EveryStartingAt, at.toString())
 }
