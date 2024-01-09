@@ -119,14 +119,6 @@ signing {
     sign(publishing.publications)
 }
 
-tasks.withType<Sign>().configureEach {
-    val propName = "signing.skip"
-    onlyIf("$propName is set") {
-        val skipSigning = project.extra[propName]?.toString()?.toBooleanStrict() ?: false
-        !skipSigning
-    }
-}
-
 tasks.withType<AbstractPublishToMaven>().configureEach {
     val signingTasks = tasks.withType<Sign>()
     mustRunAfter(signingTasks)
