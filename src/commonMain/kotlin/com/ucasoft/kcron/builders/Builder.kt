@@ -92,7 +92,7 @@ class Builder(firstDayOfWeek: WeekDays = WeekDays.Monday) {
                         for (day in calculateDays(year, month, (partBuilders.getValue(CronPart.DaysOfWeek) as DaysOfWeekBuilder).daysOfWeek, (partBuilders.getValue(CronPart.Days) as DaysBuilder).days, start)) {
                             for (hour in (partBuilders.getValue(CronPart.Hours) as HoursBuilder).hours.filter { h -> h >= start.hour || day > start.dayOfMonth || month > start.monthNumber || year > start.year }) {
                                 for (minute in (partBuilders.getValue(CronPart.Minutes) as MinutesBuilder).minutes.filter { m -> m >= start.minute || hour > start.hour || day > start.dayOfMonth || month > start.monthNumber || year > start.year }) {
-                                    for (seconds in (partBuilders.getValue(CronPart.Seconds) as SecondsBuilder).seconds.filter { s -> s > start.second || minute > start.minute || hour > start.hour || day > start.dayOfMonth || month > start.monthNumber || year > start.year }) {
+                                    for (seconds in (partBuilders.getValue(CronPart.Seconds) as SecondsBuilder).seconds.filter { s -> s >= start.second || minute > start.minute || hour > start.hour || day > start.dayOfMonth || month > start.monthNumber || year > start.year }) {
                                         yield(LocalDateTime(year, month, day, hour, minute, seconds))
                                     }
                                 }
