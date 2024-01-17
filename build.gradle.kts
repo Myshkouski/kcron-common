@@ -1,11 +1,11 @@
 plugins {
-    kotlin("multiplatform") version "1.9.22"
+    alias(libs.plugins.multiplatform)
     id("maven-publish")
     id("signing")
 }
 
 group = "com.ucasoft.kcron"
-version = "0.9.0"
+version = "0.9.2"
 
 repositories {
     mavenCentral()
@@ -31,14 +31,14 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
+                implementation(libs.kotlinx.datetime)
             }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-                implementation("io.kotest:kotest-assertions-core:5.8.0")
+                implementation(libs.kotest.assetions)
             }
         }
         val jsTest by getting {
@@ -79,8 +79,8 @@ publishing {
                 url.set("https://github.com/Scogun/kcron-common")
                 licenses {
                     license {
-                        name.set("GPL-3.0 License")
-                        url.set("https://www.gnu.org/licenses/gpl-3.0.en.html")
+                        name.set("The Apache License, Version 2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                     }
                 }
                 developers {
