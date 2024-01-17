@@ -15,7 +15,7 @@ class YearsBuilder : EveryAtBuilder<YearGroups>() {
     override val defaultStart: Int
         get() {
             val now = Clock.System.now()
-            return now.toLocalDateTime(TimeZone.currentSystemDefault()).year
+            return now.toLocalDateTime(TimeZone.UTC).year
         }
 
     override val defaultEnd = 2099

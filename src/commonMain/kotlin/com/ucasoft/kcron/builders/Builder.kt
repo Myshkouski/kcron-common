@@ -106,7 +106,7 @@ class Builder(firstDayOfWeek: WeekDays = WeekDays.Monday) {
 
     @DelicateIterableApi
     fun asIterable(): Iterable<LocalDateTime> {
-        val now = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
+        val now = Clock.System.now().toLocalDateTime(TimeZone.UTC)
         return asIterable(start = now)
     }
 
@@ -241,7 +241,7 @@ class Builder(firstDayOfWeek: WeekDays = WeekDays.Monday) {
             nextYear += 1
             nextMonth = 1
         }
-        val firstDayNextMonth = LocalDateTime(nextYear, nextMonth, 1, 0, 0).toInstant(TimeZone.currentSystemDefault())
-        return firstDayNextMonth.plus(-1, DateTimeUnit.DAY, TimeZone.currentSystemDefault()).toLocalDateTime(TimeZone.currentSystemDefault())
+        val firstDayNextMonth = LocalDateTime(nextYear, nextMonth, 1, 0, 0).toInstant(TimeZone.UTC)
+        return firstDayNextMonth.plus(-1, DateTimeUnit.DAY, TimeZone.UTC).toLocalDateTime(TimeZone.UTC)
     }
 }

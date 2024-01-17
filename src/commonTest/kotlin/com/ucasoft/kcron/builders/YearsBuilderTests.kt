@@ -19,7 +19,7 @@ class YearsBuilderTests {
     @BeforeTest
     fun setupOnce() {
         builder = YearsBuilder()
-        currentYear = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).year
+        currentYear = Clock.System.now().toLocalDateTime(TimeZone.UTC).year
     }
 
     @Test

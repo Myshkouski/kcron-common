@@ -19,7 +19,7 @@ class BuildAndParseTests {
 
     @BeforeTest
     fun setupOnce() {
-        currentYear = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).year
+        currentYear = Clock.System.now().toLocalDateTime(TimeZone.UTC).year
     }
     
     @Test

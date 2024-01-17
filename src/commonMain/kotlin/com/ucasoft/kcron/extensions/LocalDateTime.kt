@@ -2,15 +2,15 @@ package com.ucasoft.kcron.extensions
 
 import kotlinx.datetime.*
 
-fun LocalDateTime.plusHours(hours: Int, timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDateTime {
+fun LocalDateTime.plusHours(hours: Int, timeZone: TimeZone = TimeZone.UTC): LocalDateTime {
     return plus(this, hours, DateTimeUnit.HOUR, timeZone)
 }
 
-fun LocalDateTime.plusDays(days: Int, timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDateTime {
+fun LocalDateTime.plusDays(days: Int, timeZone: TimeZone = TimeZone.UTC): LocalDateTime {
     return plus(this, days, DateTimeUnit.DAY, timeZone)
 }
 
-fun LocalDateTime.minusDays(days: Int, timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDateTime {
+fun LocalDateTime.minusDays(days: Int, timeZone: TimeZone = TimeZone.UTC): LocalDateTime {
     return plus(this, if (days > 0) { days * -1 } else { days }, DateTimeUnit.DAY, timeZone)
 }
 
