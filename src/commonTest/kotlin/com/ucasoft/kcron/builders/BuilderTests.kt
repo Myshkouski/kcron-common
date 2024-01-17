@@ -187,9 +187,9 @@ class BuilderTests {
 
     @Test
     fun iterableShouldStartFromExactProvidedStartDateTime() {
-        // setup cron to run every day at 00:00:00 from 2050 to 2070
-        val builder = Builder().years(2050..2070).hours(0).minutes(0).seconds(0)
-        // set start datetime for iterable to 1 Jan 2050 00:00:00 (exact the same as cron's start)
+        // setup cron to run every day at 00:00:00
+        val builder = Builder().anyDays().hours(0).minutes(0).seconds(0)
+        // set start datetime for iterable to 1 Jan 2050 00:00:00 (exact the same moment cron should trigger)
         val start = LocalDate(2050, 1, 1).atTime(0, 0, 0)
         // expected iterable's first run will be equal to start
         val expected = start
