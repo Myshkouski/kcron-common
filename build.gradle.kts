@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.multiplatform)
     id("maven-publish")
-    id("signing")
 }
 
 group = "com.ucasoft.kcron"
@@ -113,13 +112,4 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    sign(publishing.publications)
-}
-
-tasks.withType<AbstractPublishToMaven>().configureEach {
-    val signingTasks = tasks.withType<Sign>()
-    mustRunAfter(signingTasks)
 }
