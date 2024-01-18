@@ -3,8 +3,8 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.ucasoft.kcron"
-version = "0.9.2"
+group = "io.github.myshkouski"
+version = "0.10.0"
 
 repositories {
     mavenCentral()
